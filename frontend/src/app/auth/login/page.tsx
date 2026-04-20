@@ -18,10 +18,10 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#0b1416] relative overflow-hidden px-4">
+    <div className="min-h-screen flex items-center justify-center bg-black relative overflow-hidden px-4">
       {/* Background Decorative Elements */}
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#FF4500]/10 blur-[120px] rounded-full"></div>
-      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-red-600/10 blur-[120px] rounded-full"></div>
+      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#833ab4]/10 blur-[120px] rounded-full"></div>
+      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-[#0095f6]/10 blur-[120px] rounded-full"></div>
 
       <div className="w-full max-w-md bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-3xl shadow-2xl relative z-10">
         <div className="text-center mb-10">
@@ -38,7 +38,7 @@ export default function LoginPage() {
               id="username"
               type="text"
               required
-              className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-[#FF4500]/50 transition-all"
+              className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-[#0095f6]/50 transition-all"
               placeholder="johndoe"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
@@ -52,7 +52,7 @@ export default function LoginPage() {
             <input
               id="email"
               type="email"
-              className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-[#FF4500]/50 transition-all"
+              className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-[#0095f6]/50 transition-all"
               placeholder="alex@example.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -66,7 +66,7 @@ export default function LoginPage() {
               </label>
               <Link
                 href="/auth/forgot-password"
-                className="text-xs text-[#FF4500] hover:text-[#ff5722] transition-colors"
+                className="text-xs text-[#0095f6] hover:text-[#1877f2] transition-colors"
               >
                 Forgot password?
               </Link>
@@ -75,7 +75,7 @@ export default function LoginPage() {
               id="password"
               type="password"
               required
-              className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-[#FF4500]/50 transition-all"
+              className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-[#0095f6]/50 transition-all"
               placeholder="••••••••"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -84,7 +84,7 @@ export default function LoginPage() {
 
           <button
             type="submit"
-            className="w-full bg-[#FF4500] hover:bg-[#ff5722] text-white font-semibold py-3 rounded-xl transition-all active:scale-[0.98] shadow-lg shadow-[#FF4500]/20"
+            className="w-full bg-[#0095f6] hover:bg-[#1877f2] text-white font-semibold py-3 rounded-xl transition-all active:scale-[0.98] shadow-lg shadow-[#0095f6]/20"
           >
             Sign In
           </button>
@@ -93,7 +93,7 @@ export default function LoginPage() {
         <div className="mt-8 text-center">
           <p className="text-zinc-400 text-sm">
             Don't have an account?{" "}
-            <Link href="/auth/signup" className="text-[#FF4500] font-semibold hover:text-[#ff5722] transition-colors">
+            <Link href="/auth/signup" className="text-[#0095f6] font-semibold hover:text-[#1877f2] transition-colors">
               Sign up
             </Link>
           </p>

@@ -8,7 +8,7 @@ export default function HomePage() {
   const [postContent, setPostContent] = useState("");
   const [selectedTag, setSelectedTag] = useState("Confession");
   return (
-    <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-8">
+    <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-8 min-h-screen bg-[#0b1416]">
       {/* Main Feed Column */}
       <div className="flex-1 space-y-6">
         <div className="flex items-center justify-between mb-8">
@@ -62,45 +62,45 @@ export default function HomePage() {
             tag: "Update"
           }
         ].map((post) => (
-          <div key={post.id} className="bg-[#1a1a1b] border border-white/5 rounded-xl overflow-hidden hover:border-white/10 transition-all group cursor-pointer">
-            <div className="flex">
-              {/* Voting Bar */}
-              <div className="w-12 bg-black/10 flex flex-col items-center py-4 gap-2 border-r border-white/5">
-                <button className="text-zinc-500 hover:text-[#FF4500] transition-colors">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+          <div key={post.id} className="bg-[#1a1a1b] border border-white/5 rounded-xl overflow-hidden hover:border-white/10 transition-all group cursor-pointer p-4">
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-5 h-5 rounded-full bg-zinc-700 flex items-center justify-center text-[10px] font-bold">S</div>
+              <span className="text-[10px] font-bold text-zinc-300">srm/{post.tag.toLowerCase()}</span>
+              <span className="text-zinc-500 text-[10px]">• Posted by u/{post.author}</span>
+              <span className="text-zinc-500 text-[10px]">• {post.time}</span>
+            </div>
+            
+            <h3 className="text-lg font-bold mb-2 group-hover:text-[#FF4500] transition-colors">{post.title}</h3>
+            <p className="text-sm text-zinc-400 leading-relaxed mb-4 line-clamp-3">{post.content}</p>
+
+            <div className="flex items-center gap-2 sm:gap-4 flex-wrap">
+              {/* Horizontal Voting Pill */}
+              <div className="flex items-center bg-white/5 border border-white/10 rounded-full h-8 overflow-hidden">
+                <button className="px-2 h-full text-zinc-500 hover:text-[#FF4500] hover:bg-white/5 transition-all">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
                 </button>
-                <span className="text-xs font-bold text-zinc-300">{post.upvotes}</span>
-                <button className="text-zinc-500 hover:text-[#7193ff] transition-colors">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+                <span className="text-xs font-bold text-zinc-300 min-w-[20px] text-center px-1">{post.upvotes}</span>
+                <button className="px-2 h-full text-zinc-500 hover:text-[#7193ff] hover:bg-white/5 transition-all">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
                 </button>
               </div>
 
-              {/* Content Area */}
-              <div className="flex-1 p-4">
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="w-5 h-5 rounded-full bg-zinc-700 flex items-center justify-center text-[10px] font-bold">S</div>
-                  <span className="text-[10px] font-bold text-zinc-300">srm/{post.tag.toLowerCase()}</span>
-                  <span className="text-zinc-500 text-[10px]">• Posted by u/{post.author}</span>
-                  <span className="text-zinc-500 text-[10px]">• {post.time}</span>
-                </div>
-                
-                <h3 className="text-lg font-bold mb-2 group-hover:text-blue-400 transition-colors">{post.title}</h3>
-                <p className="text-sm text-zinc-400 leading-relaxed mb-4">{post.content}</p>
+              {/* Comment Button */}
+              <button className="flex items-center gap-2 text-zinc-500 hover:bg-white/5 px-3 h-8 rounded-full transition-all border border-transparent hover:border-white/10">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                <span className="text-xs font-medium">{post.comments} <span className="hidden sm:inline">Comments</span></span>
+              </button>
 
-                <div className="flex items-center gap-4">
-                  <button className="flex items-center gap-2 text-zinc-500 hover:bg-white/5 px-2 py-1 rounded transition-all">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                    <span className="text-xs font-medium">{post.comments} Comments</span>
-                  </button>
-                  <button className="flex items-center gap-2 text-zinc-500 hover:bg-white/5 px-2 py-1 rounded transition-all">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
-                    <span className="text-xs font-medium">Share</span>
-                  </button>
-                  <button className="flex items-center gap-2 text-zinc-500 hover:bg-white/5 px-2 py-1 rounded transition-all ml-auto">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg>
-                  </button>
-                </div>
-              </div>
+              {/* Share Button */}
+              <button className="flex items-center gap-2 text-zinc-500 hover:bg-white/5 px-3 h-8 rounded-full transition-all border border-transparent hover:border-white/10">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
+                <span className="text-xs font-medium hidden sm:inline">Share</span>
+              </button>
+
+              {/* Save Button */}
+              <button className="flex items-center gap-2 text-zinc-500 hover:bg-white/5 p-2 h-8 rounded-full transition-all border border-transparent hover:border-white/10 ml-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg>
+              </button>
             </div>
           </div>
         ))}
@@ -218,7 +218,7 @@ export default function HomePage() {
                   setPostTitle("");
                   setPostContent("");
                 }}
-                className="px-8 py-2 bg-[#FF4500] hover:bg-[#ff5722] disabled:opacity-50 disabled:cursor-not-allowed text-white text-sm font-bold rounded-full transition-all"
+                className="px-8 py-2 bg-[#FF4500] hover:bg-[#ff5722] disabled:opacity-50 disabled:cursor-not-allowed text-white text-sm font-bold rounded-full transition-all shadow-lg shadow-[#FF4500]/20"
               >
                 Post
               </button>
